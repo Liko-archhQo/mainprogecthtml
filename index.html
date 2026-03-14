@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Карточка студента</title>
+
+<style>
+.music-btn{
+margin-top:15px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff7a18,#ffb347);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.music-btn:hover{
+transform:scale(1.1);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#4facfe,#00f2fe,#43e97b,#38f9d7);
+background-size:400% 400%;
+animation:gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+background:white;
+width:380px;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+animation:fadeIn 1.5s ease;
+transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.info{
+margin:8px 0;
+color:#444;
+}
+
+.section{
+margin-top:15px;
+font-weight:bold;
+color:#222;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#4facfe;
+color:white;
+text-decoration:none;
+border-radius:25px;
+transition:background 0.3s, transform 0.2s;
+}
+
+.btn:hover{
+background:#0077ff;
+transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Лютиков Роман Александрович</h1>
+
+<p class="info"><b>Статус:</b> Студент 3 курса</p>
+<p class="info"><b>Группа:</b> 10-НФ23</p>
+
+<p class="section">Педагог</p>
+<p class="info">Рубцова Татьяна Павловна</p>
+
+<p class="section">Хобби</p>
+<p class="info">Изучение IT и разработка проектов</p>
+
+<a class="btn" href="#">Подробнее</a>
+
+<p class="section">Музыка</p>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Включить музыку</button>
+
+<audio id="music">
+  <source src="tyzhprogrammist.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+let music = document.getElementById("music");
+let btn = document.querySelector(".music-btn");
+
+function toggleMusic(){
+    if(music.paused){
+        music.play();
+        btn.innerHTML = "⏸ Остановить музыку";
+    }else{
+        music.pause();
+        btn.innerHTML = "🎵 Включить музыку";
+    }
+}
+</script>
+</body>
+</html>
